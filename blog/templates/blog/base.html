@@ -11,14 +11,43 @@
         <header class="page-header">
             <div class="container">
                 {% if user.is_authenticated %}
+                <a href="{%url 'logout_user' %}" class="top-menu">
+                    Logout
+                </a>
+                <a href="{%url 'edit_user' %}" class="top-menu">
+                    Edit profile
+                </a>
+                <a href="{%url 'change_passwd' %}" class="top-menu">
+                    Zmień hasło
+                </a>
                 <a href="{% url 'post_new' %}" class="top-menu">
                     {% include './icons/file-earmark-plus.svg' %}
                 </a>
+                {% else %}
+                <a href="{%url 'login_user' %}" class="top-menu">
+                    Login
+                </a>
+                <a href="{%url 'register_user' %}" class="top-menu">
+                    Sign Up
+                </a>
                 {% endif %}
+
                 <h1><a href="/">Django Girls Blog</a></h1>
             </div>
+            
         </header>
         <main class="content container">
+            {% if messages %}
+                {%for message in messages %}
+                        
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>{{message}}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+                  </div>
+                
+                {%endfor%}
+            {%endif%}
             <div class="row">
                 <div class="col">
                     {% block content %}

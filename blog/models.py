@@ -16,3 +16,12 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
+class CommentsPost(models.Model):
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+    postID = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.text

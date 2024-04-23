@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>Login</h2>
+    <form method="POST" action="{% url 'change_passwd'%}">
+        {% csrf_token %}
+        {{passwd_form.as_p}}
+        <br/>
+        <br/>
+    <button type="submit", class="btn btn-secondary">Zmień hasło</button>
+    </form>
+{% endblock %}
