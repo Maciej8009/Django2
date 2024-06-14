@@ -95,9 +95,9 @@ DATABASES = {
         "ENGINE": "django.db.backends.mysql",
         "NAME": 'JustDB',
         "USER": 'root',
-        "PASSWORD": '',
-        "HOST": 'localhost',
-        "PORT": '3306'
+        "PASSWORD": 'password',
+        "HOST": 'db',
+        "PORT": '3307'
     }
 }
 
